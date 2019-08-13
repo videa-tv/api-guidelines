@@ -553,15 +553,8 @@ Property | Type | Required | Description
 `code` | String (enumerated) | ✔ | One of a server-defined set of error codes.
 `message` | String | ✔ | A human-readable representation of the error.
 `target` | String |  | The target of the error.
-`details` | Error[] |  | An array of details about specific errors that led to this reported error.
-`innererror` | InnerError |  | An object containing more specific information than the current object about the error.
+`details` | Object |  | Open schema object for error details
 
-##### InnerError : Object
-
-Property | Type | Required | Description
--------- | ---- | -------- | -----------
-`code` | String |  | A more specific error code than was provided by the containing error.
-`innererror` | InnerError |  | An object containing more specific information than the current object about the error.
 
 ##### Examples
 
@@ -1248,7 +1241,6 @@ Services are versioned using a Major.Minor versioning scheme.
 Services MAY opt for a "Major" only version scheme in which case the ".0" is implied and all other rules in this section apply.
 Two options for specifying the version of a REST API request are supported:
 - Embedded in the path of the request URL, at the end of the service root: `https://api.contoso.com/v1.0/products/users`
-- As a query string parameter of the URL: `https://api.contoso.com/products/users?api-version=1.0`
 
 Guidance for choosing between the two options is as follows:
 
